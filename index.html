@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toko Skincare Hanami</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Toko Skincare Hanami</h1>
+    <nav>
+      <a href="#produk-terbaru">Produk</a>
+      <a href="#kategori">Kategori</a>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#keranjang">Keranjang 🛒</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="produk-terbaru">
+      <h2>Produk Terbaru</h2>
+      <div class="product-list">
+        <article class="product">
+          <img src="https://wardah-mainsite.s3-ap-southeast-1.amazonaws.com/medias/products/variant-1662691441.png" alt="Renew You Day Cream - Wardah" />
+          <h3>Renew You Day Cream</h3>
+          <p>Day cream ringan dengan SPF 35 PA+++. Lindungi kulit dari sinar UV, sekaligus cerahkan dan haluskan dengan niacinamide, peptide, & bakuchiol.</p>
+          <span>Rp107.000</span>
+          <button class="buy-button">Beli</button>
+        </article>
+
+        <article class="product">
+          <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/MTA-64466116/wardah_wardah_perfect_bright_bright_-_night_glow_night_moisturizer_20_ml_full08_o392qmsj.png" alt="Perfect Bright Moisturizer - Wardah" />
+          <h3>Perfect Bright Night Glow</h3>
+          <p>Moisturizer malam dengan 4X Bright Berries + Glow Boost Tech. Membuat kulit cerah dan kenyal saat bangun.</p>
+          <span>Rp30.000</span>
+          <button class="buy-button">Beli</button>
+        </article>
+
+        <article class="product">
+          <img src="https://down-id.img.susercontent.com/file/id-11134207-7qul7-lkcazgiurvvuaf.jpg" alt="Hydra Rose" />
+          <h3>Hydra Rose</h3>
+          <p>Pembersih wajah gel lembut dengan rose oil dan hydrating active. Cocok untuk kulit sensitif dan kering.</p>
+          <span>Rp32.000</span>
+          <button class="buy-button">Beli</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="kategori">
+      <h2>Kategori</h2>
+      <ul>
+        <li>Pencerah</li>
+        <li>Moisturizer</li>
+        <li>Pembersih</li>
+        <li>Micellar Water</li>
+      </ul>
+    </section>
+
+    <section id="tentang">
+      <h2>Tentang Kami</h2>
+      <p>Toko skincare ini dibuat sebagai proyek latihan HTML. Kami menyediakan produk berkualitas tinggi dengan harga terjangkau.</p>
+    </section>
+
+    <section id="keranjang">
+      <h2>Keranjang Belanja</h2>
+      <p id="empty-text">Keranjang kamu masih kosong.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Toko Skincare Hanami. All rights reserved.
+  </footer>
+
+  <script>
+    const cartSection = document.getElementById("keranjang");
+    const cartList = document.createElement("ul");
+    cartSection.appendChild(cartList);
+    const buttons = document.querySelectorAll(".buy-button");
+    buttons.forEach(button => {
+      button.addEventListener("click", function () {
+        const productName = this.parentElement.querySelector("h3").innerText;
+        const newItem = document.createElement("li");
+        newItem.textContent = productName + " ditambahkan ke keranjang";
+        cartList.appendChild(newItem);
+        document.getElementById("empty-text").style.display = "none";
+      });
+    });
+  </script>
+</body>
+</html>
